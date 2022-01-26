@@ -6,6 +6,10 @@ import java.util.Optional;
 import java.util.Set;
 
 public class Dev {
+    public Dev(String nome) {
+        this.nome = nome;
+    }
+
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
@@ -69,4 +73,25 @@ public class Dev {
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
     }
+
+
+    public void printInscritos() {
+        System.out.println("Conteúdos Inscritos " + getNome() + ":" + getConteudosInscritos());
+    }
+
+    public void printConcluidos() {
+        System.out.println("Conteúdos Concluídos " + getNome() + ":" + getConteudosConcluidos());
+    }
+
+    public void printXP() {
+        System.out.println("XP:" + calcularTotalXp());
+    }
+
+    public void printFinal() {
+        System.out.println("-");
+        printInscritos();
+        printConcluidos();
+        printXP();
+    }
+
 }
